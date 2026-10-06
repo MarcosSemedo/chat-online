@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Online - Estilo WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Tela de login -->
+  <div id="login-screen" class="screen">
+    <div class="login-box">
+      <div class="logo">💬</div>
+      <h1>Chat Online</h1>
+      <p>Entre com seu nome para começar a conversar</p>
+      <input 
+        type="text" 
+        id="username-input" 
+        placeholder="Seu nome..." 
+        maxlength="20"
+        autocomplete="off"
+      >
+      <button id="join-btn">Entrar no Chat</button>
+    </div>
+  </div>
+
+  <!-- Tela do chat -->
+  <div id="chat-screen" class="screen hidden">
+    <header class="chat-header">
+      <div class="header-info">
+        <div class="avatar">💬</div>
+        <div>
+          <h2>Sala Pública</h2>
+          <span id="online-count">0 online</span>
+        </div>
+      </div>
+      <button id="leave-btn" title="Sair">⏻</button>
+    </header>
+
+    <div class="chat-container">
+      <!-- Lista de usuários online (lateral) -->
+      <aside class="users-sidebar">
+        <h3>Online</h3>
+        <ul id="users-list"></ul>
+      </aside>
+
+      <!-- Área de mensagens -->
+      <main class="messages-area">
+        <div id="messages"></div>
+        
+        <div class="input-area">
+          <input 
+            type="text" 
+            id="message-input" 
+            placeholder="Digite uma mensagem..." 
+            maxlength="500"
+            autocomplete="off"
+          >
+          <button id="send-btn">➤</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
